@@ -91,6 +91,6 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.hosts << "deploy-practice-owz0.onrender.com"
+  config.hosts << "deploy-practice-fvbf.onrender.com"
   # 後で消す
 end
