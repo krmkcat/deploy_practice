@@ -5,8 +5,8 @@ set -e
 rm -f /myapp/tmp/pids/server.pid
 
 # Build CSS and JavaScript
-bundle exec rails css:build RAILS_ENV=production
-bundle exec rails javascript:build RAILS_ENV=production
+# bundle exec rails css:build RAILS_ENV=production
+# bundle exec rails javascript:build RAILS_ENV=production
 
 # Precompile assets
 bundle exec rails assets:precompile RAILS_ENV=production
