@@ -1,13 +1,12 @@
 #!/bin/bash
 set -e
 
-# Rails に対応したファイル server.pid が存在しているかもしれないので削除する。
-rm -f /app/tmp/pids/server.pid
+# Remove a potentially pre-existing server.pid for Rails.
+rm -f /myapp/tmp/pids/server.pid
+
+bundle exec rails assets:precompile RAILS_ENV=production
+bundle exec rails assets:clean RAILS_ENV=production
+bundle exec rails db:migrate RAILS_ENV=production
 
 # Then exec the container's main process (what's set as CMD in the Dockerfile).
-bundle exec rake assets:precompile
-bundle exec rake assets:clean
-bundle exec rake db:migrate
-
-# コンテナーのプロセスを実行する。（Dockerfile 内の CMD に設定されているもの。）
 exec "$@"
